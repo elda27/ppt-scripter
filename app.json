@@ -1,0 +1,8 @@
+{
+  "name": "Scripter",
+  "description": "Extracting script from pptx files",
+  "image": "heroku/python",
+  //"repository": "https://github.com/heroku/python-getting-started",
+  "keywords": ["python", "flask" ],
+  //"addons": [ "heroku-postgresql" ]
+}

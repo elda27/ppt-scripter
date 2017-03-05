@@ -94,11 +94,14 @@ def uploadFile():
 def NotFound(error):
 	return redirect(url_for('home'))
 
-if __name__ == '__main__':
-	app.debug = True # デバッグモード有効化
+def main():
 	UPLOAD_FOLDER = '/uploads'
 	ALLOWED_EXTENSIONS = set(['pptx'])
 
 	app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 	app.run(host='0.0.0.0') # どこからでもアクセス可能に
+
+if __name__ == '__main__':
+	app.debug = True # デバッグモード有効化
+	main()
