@@ -43,6 +43,36 @@
     }  
   }
 
+  function randomPopinStrings(c) 
+  {
+    //跳ねさせる要素をすべて取得
+    var randomChar = document.getElementsByClassName(c);
+
+    //for で総当たり
+    for (var i = 0; i < randomChar.length; i++) {
+
+        //クロージャー
+        (function(i) {
+            //i 番目の要素、テキスト内容、文字列の長さを取得
+            var randomCharI = randomChar[i];
+            var randomCharIText = randomCharI.textContent;
+            var randomCharLength = randomCharIText.length;
+
+            //何番目の文字を跳ねさせるかをランダムで決める
+            var Num = ~~(Math.random() * randomCharLength);
+
+            //跳ねさせる文字を span タグで囲む、それ以外の文字と合わせて再び文字列を作る
+            var newRandomChar = randomCharIText.substring(0, Num) + "" + randomCharIText.charAt(Num) + "" + randomCharIText.substring(Num + 1, randomCharLength);
+            randomCharI.innerHTML = newRandomChar;
+
+            //アニメーションが終わったら再び関数を発火させる
+            document.getElementsByClassName(c)[0].children[0].addEventListener("animationend", function() {
+                randomCharactor(c)
+            }, false)
+        })(i)
+    }
+  }
+
   function uploadFiles(files)
   {
     var filelist_dom = $("#filelist");
@@ -53,6 +83,10 @@
       appendFileList(filelist_dom, file.name)
       fd.append('fileinputs', file, file.name)
     }
+
+    now_loading_dom = $('.now-loading')
+    now_loading_dom.append('Now Uploading!')
+    randomPopinStrings('now-loading')
 
     $.ajax({
       type:'POST',
@@ -84,6 +118,9 @@
         {
           $(this).next().slideToggle(300)
         })
+
+        now_loading_dom = $('.now-loading')
+        now_loading_dom.remove()
       });
   }
 
