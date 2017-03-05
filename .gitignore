@@ -5,3 +5,4 @@ Resource/
 Source/build/
 Source/gpt/__pycache__/
 Source/setup.py
+www/__pycache__/
