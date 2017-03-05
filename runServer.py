@@ -19,4 +19,4 @@ www.server.app.logger.addHandler(stream_handler)
 
 os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'www'))
 
-www.server.main(True)
+www.server.main(False)
