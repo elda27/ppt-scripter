@@ -14,6 +14,6 @@ sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
 stream_handler = logging.StreamHandler()
 stream_handler.setLevel(logging.INFO)
-app.logger.addHandler(stream_handler)
+www.server.app.logger.addHandler(stream_handler)
 os.chdir('./www')
 www.server.main(True)
