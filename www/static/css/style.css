@@ -1,0 +1,56 @@
+body {
+  background-color: #F8F8F8;
+  -webkit-text-size-adjust: 100%;
+}
+
+button {
+  background-color: #F8F8F8;
+}
+
+ul {
+  background-color: #F8F8F8;
+}
+
+#drag-drop-area {
+  border: 0.3em dotted #0B85A1;
+  border-radius: 0.5em;
+  display: flex;
+  padding: 4em;
+  margin: 0.5em;
+  align-items: center;
+  justify-content: center;
+}
+
+#hidden-file-upload {
+  display: none;
+}
+.navigate-help {
+  cursor: pointer;
+}
+
+.drag-drop-info {
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.drag-drop-button-wrapper {
+  text-align: center;
+  /*margin-left: auto;
+  margin-right: auto;*/
+}
+
+.loadfilename {
+  cursor: pointer;
+  display: block;
+  margin: 0.1em;
+  font-size: 1.1em;
+}
+
+.loadfilename:hover {
+  text-decoration: none;
+}
+
+.notescript {
+  display:none;
+  margin-left: 1em
+}

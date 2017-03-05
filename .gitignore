@@ -1,0 +1,7 @@
+setup.py
+Installer/
+Papers/
+Resource/
+Source/build/
+Source/gpt/__pycache__/
+Source/setup.py
