@@ -16,3 +16,4 @@ six==1.10.0
 suds-jurko==0.6
 Werkzeug==0.11.15
 XlsxWriter==0.9.6
+gunicorn==19.7.0
