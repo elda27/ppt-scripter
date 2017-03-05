@@ -102,7 +102,7 @@ def main(debug=False):
 	app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 	port = int(os.environ.get('PORT', 5000))
-	app.run(host='0.0.0.0:' + str(port)) # どこからでもアクセス可能に
+	app.run(host='0.0.0.0:', port=port) # どこからでもアクセス可能に
 
 if __name__ == '__main__':
 	main(True)
