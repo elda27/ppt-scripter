@@ -1,3 +1,5 @@
+print('Invoked runserver.wsgi')
+
 import sys
 sys.path.append('./Source/')
 
