@@ -112,7 +112,7 @@
         })
 
         now_loading_dom = $('.now-loading')
-        now_loading_dom.remove()
+        now_loading_dom.html('')
       });
   }
 
