@@ -54,3 +54,19 @@ ul {
   display:none;
   margin-left: 1em
 }
+
+.now-loading {
+  font-size: 1.1em;
+  padding: 1em;
+}
+
+.now-loading span {
+    animation: popin 0.3s linear;
+    position: relative;
+}
+
+@keyframes popin {
+    0% {top: 0}
+    50% {top:-17px}
+    100%{top: 0}
+}

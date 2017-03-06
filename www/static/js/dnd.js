@@ -43,39 +43,27 @@
     }  
   }
 
-  function randomPopinStrings(c) 
+  function randomPopinStrings(domstring)
   {
-    //跳ねさせる要素をすべて取得
-    var randomChar = document.getElementsByClassName(c);
+    var target_doms = $(domstring)
+    for (dom_obj of target_doms)
+    {
+      dom = $(dom_obj)
+      var inner_text = dom.text()
+      console.log(inner_text)
+      var inner_text_length = inner_text.length
+      var popin_pos = Math.floor(Math.random() * inner_text_length)
 
-    //for で総当たり
-    for (var i = 0; i < randomChar.length; i++) {
+      var new_popin_text = inner_text.substring(0, popin_pos) + "<span>" + inner_text.charAt(popin_pos) + "</span>" + inner_text.substring(popin_pos + 1, inner_text_length)
 
-        //クロージャー
-      (function(i) {
-          //i 番目の要素、テキスト内容、文字列の長さを取得
-          var randomCharI = randomChar[i];
-          var randomCharIText = randomCharI.textContent;
-          var randomCharLength = randomCharIText.length;
-          //何番目の文字を跳ねさせるかをランダムで決める
-          var Num = ~~(Math.random() * randomCharLength);
-
-          //跳ねさせる文字を span タグで囲む、それ以外の文字と合わせて再び文字列を作る
-          var newRandomChar = randomCharIText.substring(0, Num) + "" + randomCharIText.charAt(Num) + "" + randomCharIText.substring(Num + 1, randomCharLength);
-          randomCharI.innerHTML = newRandomChar;
-
-          //アニメーションが終わったら再び関数を発火させる
-          span_obj = document.getElementsByClassName(c)[0].children[0]
-          if (span_obj === undefined)
-          {
-            return
-          }
-          span_obj.addEventListener("animationend", function() {
-            randomPopinStrings(c)
-            }, false)
-          })(i)
-        }
-      }
+      //dom.remove()
+      dom.html(new_popin_text)
+      $(dom.children('span')[0]).on('animationend', function()
+      {
+        randomPopinStrings(domstring)
+      })
+    }
+  }
 
   function uploadFiles(files)
   {
@@ -89,8 +77,8 @@
     }
 
     now_loading_dom = $('.now-loading')
-    now_loading_dom.append('Now Uploading...')
-    randomPopinStrings('now-loading')
+    now_loading_dom.append('Now Uploading ...')
+    randomPopinStrings('.now-loading')
 
     $.ajax({
       type:'POST',

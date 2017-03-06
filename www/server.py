@@ -1,6 +1,7 @@
 import sys
 import os
 import os.path
+import time
 sys.path.append('../Source/')
 
 from xml.sax.saxutils import escape
@@ -87,6 +88,10 @@ def uploadFile():
 			print(e)
 			note_dict[file.filename] = 'Error:'
 			continue
+
+	if app.debug:
+		time.sleep(10)
+
 
 	return jsonify(notes = note_dict, uuid = uuid.uuid4().hex)
 
